@@ -1,0 +1,22 @@
+.gas1{
+    border-radius: 5px;
+    border: 3px solid red;
+    display: flex;
+}
+.gasolineraLogo img {
+    border-radius: 5px;
+    max-height: 70px;
+    max-width: 70px;
+    padding: 10px;
+}
+.gasolineraName{
+    font-size: 13px;
+}
+.precios{
+    display: table;
+    margin: 0px;
+}
+.todo{
+    display: inline-block;
+
+}
