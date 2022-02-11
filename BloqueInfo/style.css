@@ -1,22 +1,24 @@
-.gas1{
+.gasBorder{
     border-radius: 5px;
-    border: 3px solid red;
+    border: 3px solid rgb(255, 72, 0);
     display: flex;
 }
-.gasolineraLogo img {
+.gasInfoLogo img {
     border-radius: 5px;
     max-height: 70px;
     max-width: 70px;
     padding: 10px;
 }
-.gasolineraName{
+.gasName{
     font-size: 13px;
 }
-.precios{
-    display: table;
-    margin: 0px;
+.gasMoney{
+    display: flex;
 }
-.todo{
-    display: inline-block;
-
+.gasMoney p {
+    border-radius: 10px;
+    border: 2px solid rgb(194, 38, 38);
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 10px;
 }
