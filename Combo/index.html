@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/comboController.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div>
+        <p class="marginText">Selecciona los datos para poderte mostrar los datos personalizados</p>
+
+
+        <div class="midPage">
+            <div class="div2">
+                <label class="combo-label">Selecciona una Comunidad Autonoma</label>
+                <select id="comunidad" class="combo">
+                    <option class="option" value="" selected="selected">Comunidad Autonoma</option>
+                </select>
+
+                <label class="combo-label">Selecciona una provincia</label>
+                <select id="provincia" class="combo">
+                    <option class="option" value="" selected="selected">Provincia</option>
+                </select>
+
+                <label class="combo-label">Selecciona un Municipio</label>
+
+                <select id="municipio" class="combo">
+                    <option class="option" value="" selected="selected">Municipio</option>
+                </select>
+
+                <br>
+                <div id="fail"></div>
+
+                <button class="saveDataButton" type="submit" onclick="saveData()" id="saveDataButton">
+                    Guardar Preferencias
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveData() {
+            var comunidad = document.getElementById("comunidad").value;
+            var provincia = document.getElementById("provincia").value;
+            var municipio = document.getElementById("municipio").value;
+
+            if (municipio == "") {
+                document.getElementById("fail").innerHTML = '<p class="fail"><strong>Tienes que seleccionar todos los datos</strong></p>';
+            } else {
+                // window.localStorage.setItem('IDCCAA', comunidad);
+                // window.localStorage.setItem('IDPovincia', provincia);
+                // window.localStorage.setItem('IDMunicipio', municipio);
+                // window.localStorage.setItem('basicData', 1);
+
+                // var myJSON = '{';
+                // myJSON += '"IDCCAA":';
+                // myJSON += '"'+comunidad+'"';
+                // myJSON += ',';
+                // myJSON += '"IDPovincia":';
+                // myJSON += '"'+provincia+'"';
+                // myJSON += ',';
+                // myJSON += '"IDMunicipio":';
+                // myJSON += '"'+municipio+'"';
+                // myJSON += ',';
+                // myJSON += '"basicData":';
+                // myJSON += 'true';
+                // myJSON += '}';
+               
+
+                document.cookie = "IDCCAA=" + comunidad + " ; expires=Thu, 18 Dec 2100 12:00:00 UTC";
+                document.cookie = "IDPovincia=" + provincia + " ; expires=Thu, 18 Dec 2100 12:00:00 UTC";
+                document.cookie = "IDMunicipio=" + municipio + " ; expires=Thu, 18 Dec 2100 12:00:00 UTC";
+                document.cookie = "data=" + true + " ; expires=Thu, 18 Dec 2100 12:00:00 UTC";
+
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

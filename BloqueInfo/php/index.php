@@ -29,47 +29,25 @@
     
     while($i < $z){
         $arraySimple = (array) $array->ListaEESSPrecio[$i];
-
-
-
-        
-?>
-
-<div class="gasBorder">
-        <div class="gasInfoLogo">
-            <img src="../bp.png" alt="logo">
-        </div>
-
-        <div>
-
+    ?>
+    <div class="gasBorder">
+        <div class="gasInfo">
+            <img src="bp.png" alt="logo">
             <div class="gasName">
                 <h1>BP CUATRO POSTES</h1>
             </div>
-
+        </div>
             <div class="gasMoney">
                 <p>Gasolina95: <?php echo($arraySimple['Precio Gasolina 95 E5']); ?></p>
                 <p>Gasolina98: <?php echo($arraySimple['Precio Gasolina 98 E5']); ?></p>
                 <p>Gasoleo: <?php echo($arraySimple['Precio Gasoleo A']); ?></p>
-                <p>Gasoleo +: <?php echo($arraySimple['Precio Gasolina 98 E5']); ?></p>
-                
+                <p>Gasoleo +: <?php echo($arraySimple['Precio Gasoleo Premium']); ?></p>
             </div>
         </div>
-
     </div>
-<?php
-
-
-
-        
-
-
-
-
-
+    <?php
         $i++;
     }
-
     ?>
 </body>
-
 </html>
