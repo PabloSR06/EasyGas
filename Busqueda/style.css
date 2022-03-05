@@ -1,0 +1,21 @@
+.combo-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 100;
+    margin-bottom: 0.25em;
+    margin-top: 1.5em;
+
+}
+
+.midPage {
+    justify-content: center;
+    display: flex;
+}
+.combo {
+    max-width: 400px;
+    border-radius: 5px;
+    min-width: 250px;
+    min-height: 40px;
+    background-color: #f5f5f5;
+    border: 2px solid rgba(0, 0, 0, .5);
+}
