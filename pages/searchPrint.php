@@ -45,10 +45,10 @@
             while ($i < $tam) {
                 $arraySimple = (array) $array->ListaEESSPrecio[$i];
                 //TODO: Poner imagen
-                gasolinera($arraySimple['Rótulo'], $arraySimple['Precio Gasolina 95 E5'], $arraySimple['Precio Gasolina 98 E5'], $arraySimple['Precio Gasoleo A'], $arraySimple['Precio Gasoleo Premium']);
+                gasolinera($arraySimple);
                 $i++;
 
-                echo "<a href='gasPage.php?valor=".base64_encode(serialize($arraySimple))."'>como parametro un array</a>";
+                
             }
         }
 

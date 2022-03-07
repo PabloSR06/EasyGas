@@ -1,23 +1,36 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;  
+}
+body{
+    background-color: #ececee;
+}
+a {
+    text-decoration: none;
+    color: black; /* For Example */
+}
+
+/*InfoBlock*/
 .gasBorder{
     border-radius: 5px;
     border: 3px solid rgb(255, 72, 0);
     
     margin-top: 10px;
 }
-.gasInfo{
+.gasInfoBlock{
     display: flex;
 }
-.gasInfo img {
+.gasInfoBlock img {
     border-radius: 5px;
     max-height: 70px;
     max-width: 70px;
     padding: 10px;
 }
-.gasName{
+.gasNameBlock{
     font-size: 13px;
 }
 .gasMoney{
-    display: flex;
+    display: flex;  
     justify-content: center;
 }
 .gasMoney p {
@@ -28,3 +41,103 @@
     margin-right: 5px;
     margin-left: 5px;
 }
+/*FIN InfoBlock*/
+
+/*GasStation Page*/
+/*Nombre, logo y direccion de la gasolinera*/
+.gasolineraInfo {
+    border-radius: 5px;
+    background-color: #ff6636;
+    display: flex;
+}
+.gasolineraLogo {
+    padding: 5px;
+    width: auto;
+}
+.gasolineraLogo img {
+    border-radius: 5px;
+    max-height: 75px;
+    max-width: 75px;
+}
+.gasolineraName {
+    width: 100%;
+    text-align: center;
+}
+.gasolineraName h1 {
+    margin-bottom: 0px;
+    font-size: 22px;
+}
+.gasolineraName hr {
+    margin-top: 0px;
+}
+.gasolineraName {
+    font-size: 15px;
+}
+/*FIN Nombre, logo y direccion de la gasolinera*/
+/*DIV del final*/
+.socialBar {
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+    background-color: #ff3921;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}
+.icon {
+    margin: 15px 15px 15px 0px;
+    width: 30px;
+    height: 30px;
+}
+/*FIN DIV del final*/
+/*PreciosGasolina y info gasolinera*/
+.gasInfo {
+    border-radius: 5px;
+    background-color: #cdcdcd;
+    margin: 10px 0px 10px 0px;
+}
+.gas {
+    display: flex;
+    padding-left: 15px;
+}
+.gasName {
+    font-weight: bold;
+    padding-right: 10px;
+}
+/*FIN PreciosGasolina*/
+
+/*MENU DESPLEGABLE*/
+.menuDesplegable {
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    border: 0;
+}
+.active, .menuDesplegable:hover {
+    background-color: #444343;
+    border-radius: 5px 5px 0px 0px;
+
+}
+.menuDesplegable:after {
+    content: '\2022';
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2228";
+}
+.menuContenido {
+    padding: 0 18px;
+    color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #777;
+    border-radius: 0px 0px 5px 5px;
+}
+/*FIN MENU DESPLEGABLE*/
+
+/*FINGasStation Page*/
