@@ -1,4 +1,5 @@
 <?php
+//TODO PHPDOC
 function gasolinera($name, $gas95, $gas98, $gasoleo, $gasoleo2){
     //TODO Poner imagen
     echo "

@@ -12,7 +12,6 @@ function conexionREST($url){
 
     $array = json_decode($res);
 
-    print_r($res);
     return $array;
 }
 ?>
