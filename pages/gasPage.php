@@ -10,6 +10,7 @@
 <body>
     <?php
     //TODO HACER EL LINK MAS PEQUE
+    //TODO FIX CSS
     $decode =  base64_decode($_GET['valor']);
     $array = unserialize($decode);
     ?>
