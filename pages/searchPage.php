@@ -7,39 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Busqueda</title>
 
-    <script src="jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="/Easygas/style/style.css" />
 
-    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div>
+    <div class="center searchButtonPanel">
         <div>
             <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <button name='comunidad'>comunidad</button>
+                <button class="searchButton" name='comunidad'>Comunidad</button>
             </form>
         </div>
         <div>
             <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <button name='municipio'>municipio</button>
+                <button class="searchButton" name='municipio'>Municipio</button>
             </form>
         </div>
         <div>
             <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <button name='provincia'>provincia</button>
+                <button class="searchButton" name='provincia'>Provincia</button>
             </form>
         </div>
     </div>
 
-
-
     <?php
     if (isset($_POST['comunidad'])) {
     ?>
-    <div class="midPage">
-        <form action="searchPrint.php" method="post">
-            <label class="combo-label">Selecciona una Comunidad Autonoma</label>
-            <select id="comunidad" name="filtro" class="combo">
+    <div class="center">
+      <div class="ui-widget">
+        <form class="searchForm" action="searchPrint.php" method="post">
+            <p>Selecciona una Comunidad Autonoma</p>
+            <input list="comunidad" name="demo">
+            <datalist id="comunidad" name="filtro" class="combo">
                 <option class="option"  value="" selected="selected">Comunidad Autonoma</option>
                 <option class="option"  value="01">Andalucia</option>
                 <option class="option"  value="02">Aragón</option>
@@ -60,18 +59,19 @@
                 <option class="option"  value="17">Rioja (La)</option>
                 <option class="option"  value="18">Ceuta</option>
                 <option class="option"  value="19">Melilla</option>
-            </select>
-            <button name="metodo" value="metComunidad">Buscar</button>
+            </datalist>
+            <button name="metodo" class="saveDataButton" value="metComunidad">Buscar</button>
         </form>
+        </div>
     </div>
     <?php
     }   
     if (isset($_POST['provincia'])) {
     ?>
-    <div class="midPage">
-        <form action="searchPrint.php" method="post">
-            <label class="combo-label">Selecciona una provincia</label>
-            <select id="provincia" name="filtro" class="combo">
+    <div class="center">
+        <form class="searchForm" action="searchPrint.php" method="post">
+            <p>Selecciona una provincia</p>
+            <select id="combos" name="filtro" class="combo">
                 <option class="option"  value="" selected="selected">Provincia</option>
                 <option class="option"  value="02">ALBACETE</option>
                 <option class="option"  value="03">ALICANTE</option>
@@ -127,7 +127,7 @@
                 <option class="option"  value="50">ZARAGOZA</option>
             </select>
 
-            <button name="metodo" value="metProvincia">Buscar</button>
+            <button name="metodo" class="saveDataButton" value="metProvincia">Buscar</button>
 
         </form>
     </div>
@@ -135,10 +135,11 @@
     }   
     if (isset($_POST['municipio'])) {
     ?>
-    <div class="midPage">
-        <form action="searchPrint.php" method="post">
-            <label class="combo-label">Selecciona un Municipio</label>
-            <select id="municipio" name="filtro"  class="combo">
+    <div class="center">
+    <div class="ui-widget">
+        <form class="searchForm" action="searchPrint.php" method="post">
+            <p>Selecciona un Municipio</p>
+            <select id="combos" name="filtro"  class="combo">
                 <option class="option"  value="" selected="selected">Municipio</option>
                 <option class="option"  value="1">Alegría-Dulantzi</option>
                 <option class="option"  value="2">Amurrio</option>
@@ -8254,12 +8255,159 @@
                 <option class="option"  value="8111">Melilla</option>
                 <option class="option"  value="8112">Pinar de El Hierro, El</option>
             </select>
-            <button name="metodo" value="metMunicipio">Buscar</button>
+            <button name="metodo" class="saveDataButton" value="metMunicipio">Buscar</button>
         </form>
+    </div>
     </div>
     <?php
     }
     ?>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+<script>
+      (function( $ ) {
+    $.widget( "custom.combobox", {
+      _create: function() {
+        this.wrapper = $( "<span>" )
+          .addClass( "custom-combobox" )
+          .insertAfter( this.element );
+ 
+        this.element.hide();
+        this._createAutocomplete();
+        this._createShowAllButton();
+      },
+ 
+      _createAutocomplete: function() {
+        var selected = this.element.children( ":selected" ),
+          value = selected.val() ? selected.text() : "";
+ 
+        this.input = $( "<input>" )
+          .appendTo( this.wrapper )
+          .val( value )
+          .attr( "title", "" )
+          .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+          .autocomplete({
+            delay: 0,
+            minLength: 0,
+            source: $.proxy( this, "_source" )
+          })
+          .tooltip({
+            tooltipClass: "ui-state-highlight"
+          });
+ 
+        this._on( this.input, {
+          autocompleteselect: function( event, ui ) {
+            ui.item.option.selected = true;
+            this._trigger( "select", event, {
+              item: ui.item.option
+            });
+          },
+ 
+          autocompletechange: "_removeIfInvalid"
+        });
+      },
+ 
+      _createShowAllButton: function() {
+        var input = this.input,
+          wasOpen = false;
+ 
+        $( "<a>" )
+          .attr( "tabIndex", -1 )
+          .attr( "title", "Show All Countries" )
+          .tooltip()
+          .appendTo( this.wrapper )
+          .button({
+            icons: {
+              primary: "ui-icon-triangle-1-s"
+            },
+            text: false
+          })
+          .removeClass( "ui-corner-all" )
+          .addClass( "custom-combobox-toggle ui-corner-right" )
+          .mousedown(function() {
+            wasOpen = input.autocomplete( "widget" ).is( ":visible" );
+          })
+          .click(function() {
+            input.focus();
+ 
+            // Close if already visible
+            if ( wasOpen ) {
+              return;
+            }
+ 
+            // Pass empty string as value to search for, displaying all results
+            input.autocomplete( "search", "" );
+          });
+      },
+ 
+      _source: function( request, response ) {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+        response( this.element.children( "option" ).map(function() {
+          var text = $( this ).text();
+          if ( this.value && ( !request.term || matcher.test(text) ) )
+            return {
+              label: text,
+              value: text,
+              option: this
+            };
+        }) );
+      },
+ 
+      _removeIfInvalid: function( event, ui ) {
+ 
+        // Selected an item, nothing to do
+        if ( ui.item ) {
+          return;
+        }
+ 
+        // Search for a match (case-insensitive)
+        var value = this.input.val(),
+          valueLowerCase = value.toLowerCase(),
+          valid = false;
+        this.element.children( "option" ).each(function() {
+          if ( $( this ).text().toLowerCase() === valueLowerCase ) {
+            this.selected = valid = true;
+            return false;
+          }
+        });
+ 
+        // Found a match, nothing to do
+        if ( valid ) {
+          return;
+        }
+ 
+        // Remove invalid value
+        this.input
+          .val( "" )
+          .attr( "title", value + " didn't match any item" )
+          .tooltip( "open" );
+        this.element.val( "" );
+        this._delay(function() {
+          this.input.tooltip( "close" ).attr( "title", "" );
+        }, 2500 );
+        this.input.autocomplete( "instance" ).term = "";
+      },
+ 
+      _destroy: function() {
+        this.wrapper.remove();
+        this.element.show();
+      }
+    });
+  })( jQuery );
+ 
+$(document).ready(function() {
+$("#combos").combobox({
+select: function(event, ui) {
+var selectcount =this.value;
+
+}
+});
+
+
+}
+);
+    </script>
 </body>
 
 </html>
