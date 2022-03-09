@@ -27,22 +27,61 @@
         </div>
 
         <div class="gasInfo">
-
             <div class="gas">
                 <p class="gasName">Gasolina 95: </p>
-                <p><?php echo $array['Precio Gasolina 95 E5'];?></p>
+                <p>
+                    <?php 
+                        if($array['Precio Gasolina 95 E5'] == ""){
+                            if($array['Precio Gasolina 95 E10'] != ""){
+                                echo $array['Precio Gasolina 95 E10'];
+                            }else{
+                                echo "Sin Datos";
+                            }
+                        }else{
+                            echo $array['Precio Gasolina 95 E5'];
+                        }
+                    ?>
+                </p>
             </div>
             <div class="gas">
                 <p class="gasName">Gasolina 98: </p>
-                <p><?php echo $array['Precio Gasolina 98 E5'];?></p>
+                <p>
+                    <?php 
+                        if($array['Precio Gasolina 98 E5'] == ""){
+                            if($array['Precio Gasolina 98 E10'] != ""){
+                                echo $array['Precio Gasolina 98 E10'];
+                            }else{
+                                echo "Sin Datos";
+                            }
+                        }else{
+                            echo $array['Precio Gasolina 98 E5'];
+                        }
+                    ?>
+                </p>
             </div>
             <div class="gas">
                 <p class="gasName">Gasoleo A: </p>
-                <p><?php echo $array['Precio Gasoleo A'];?></p>
+                <p>
+                    <?php 
+                        if($array['Precio Gasoleo A'] != ""){
+                            echo $array['Precio Gasoleo A'];
+                        }else{
+                            echo "Sin Datos";
+                        }
+                    ?>
+                </p>
             </div>
             <div class="gas">
                 <p class="gasName">Gasoleo Premium: </p>
-                <p><?php echo $array['Precio Gasoleo Premium'];?></p>
+                <p>
+                    <?php 
+                        if($array['Precio Gasoleo Premium'] != ""){
+                            echo $array['Precio Gasoleo Premium'];
+                        }else{
+                            echo "Sin Datos";
+                        }
+                    ?>
+                </p>
             </div>
         </div>
 

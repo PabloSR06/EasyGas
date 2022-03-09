@@ -46,6 +46,7 @@ a {
 /*GasStation Page*/
 /*Nombre, logo y direccion de la gasolinera*/
 .gasolineraInfo {
+    margin-top: 0.1rem;
     border-radius: 5px;
     background-color: #ff6636;
     display: flex;
@@ -62,6 +63,11 @@ a {
 .gasolineraName {
     width: 100%;
     text-align: center;
+    margin: 10px;
+}
+.gasolineraName p {
+    
+    margin: 10px;
 }
 .gasolineraName h1 {
     margin-bottom: 0px;
@@ -98,6 +104,7 @@ a {
 .gas {
     display: flex;
     padding-left: 15px;
+    padding: 10px;
 }
 .gasName {
     font-weight: bold;
@@ -108,7 +115,7 @@ a {
 /*MENU DESPLEGABLE*/
 .menuDesplegable {
     border-radius: 5px;
-    background-color: red;
+    background-color: #444343;
     color: white;
     padding: 18px;
     width: 100%;
