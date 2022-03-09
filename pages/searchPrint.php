@@ -17,63 +17,72 @@
     ?>
     <div class="center searchButtonPanel">
         <div>
-            <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <button class="searchButton" name='gasolina'>Button 1</button>
-            </form>
-        </div>
-        <div>
-            <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <button class="searchButton" name='gasolina'>Button 1</button>
-            </form>
-        </div>
-        <div>
-            <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                <button class="searchButton" name='gasolina'>Button 1</button>
-            </form>
+            <div>
+                <form method='get' action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <input name="metodo" type="hidden" value="<?php echo $_GET['metodo']?>">
+                    <input name="filtro" type="hidden" value="<?php echo $_GET['filtro']?>">
+                    <button class="searchButton" name='orden' value="gas95">Precio Gasolina 95</button>
+                </form>
+            </div>
+            <div>   
+                <form method='get' action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <input name="metodo" type="hidden" value="<?php echo $_GET['metodo']?>">
+                    <input name="filtro" type="hidden" value="<?php echo $_GET['filtro']?>">
+                    <button class="searchButton" name='orden' value="gas98">Precio Gasolina 98</button>
+                </form>
+            </div>
+            <div>
+                <form method='get' action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <input name="metodo" type="hidden" value="<?php echo $_GET['metodo']?>">
+                    <input name="filtro" type="hidden" value="<?php echo $_GET['filtro']?>">
+                    <button class="searchButton" name='orden' value="gaso">Precio Gasoleo</button>
+                </form>
+            </div>
+            <div>
+                <form method='get' action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <input name="metodo" type="hidden" value="<?php echo $_GET['metodo']?>">
+                    <input name="filtro" type="hidden" value="<?php echo $_GET['filtro']?>">
+                    <button class="searchButton" name='orden' value="gasoplus">Precio Gasoleo +</button>
+                </form>
+            </div>
         </div>
     </div>
    <?php
-
-   
-    $metodo = ($_GET['metodo']);
-
-    if(isset($metodo)){
-        switch ($metodo) {
+    if(isset($_GET['metodo'])){
+        switch ($_GET['metodo']) {
             case "metComunidad":
-                printSearch(conexionREST("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroCCAA/".$_GET['filtro']));
+                $array = conexionREST("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroCCAA/".$_GET['filtro']);
                 break;
             case "metProvincia":
-                printSearch(conexionREST("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroProvincia/".$_GET['filtro']));
+                $array = conexionREST("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroProvincia/".$_GET['filtro']);
                 break;
             case "metMunicipio":
-                printSearch(conexionREST("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroMunicipio/".$_GET['filtro']));
+                $array = conexionREST("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroMunicipio/".$_GET['filtro']);
                 break;
         }
-    }
 
-   
-    function printSearch($array){
-        $i = 0;
-        $tam = count($array->ListaEESSPrecio);
-
-        echo "tam " .$tam;
-
-        if($tam == 0){
-            echo "No hay datos disponibles en esta busqueda";
-            //TODO: Poner alerta
-        }
-
-        while ($i < $tam) {
-            $arraySimple = (array) $array->ListaEESSPrecio[$i];
-            //TODO: Poner imagen
-            gasolinera($arraySimple);
-            $i++;
-
-            
+        if(isset($_GET['orden'])){
+            $oden = (array) $array->ListaEESSPrecio; 
+            switch ($_GET['orden']) {
+                case "gas95":
+                    printSearchFiltrer('Precio Gasolina 95 E5', bubblefix('Precio Gasolina 95 E5',$oden));
+                    break;
+                case "gas98":
+                    printSearchFiltrer('Precio Gasolina 98 E5',bubblefix('Precio Gasolina 98 E5',$oden));
+                    break;
+                case "gaso":
+                    printSearchFiltrer('Precio Gasoleo A',bubblefix('Precio Gasoleo A',$oden));
+                    break;
+                case "gasoplus":
+                    printSearchFiltrer('Precio Gasoleo Premium',bubblefix('Precio Gasoleo Premium',$oden));
+                    break;
+            }
+        }else{
+            printSearch($array);
         }
     }
 
-
+    
     ?>
     
 </body>

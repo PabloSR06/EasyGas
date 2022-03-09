@@ -8392,13 +8392,13 @@
     });
   })( jQuery );
  
-$(document).ready(function() {
-$("#combos").combobox({
-select: function(event, ui) {
-var selectcount =this.value;
+  $(document).ready(function() {
+  $("#combos").combobox({
+  select: function(event, ui) {
+  var selectcount =this.value;
 
-}
-});
+  }
+  });
 
 
 }
