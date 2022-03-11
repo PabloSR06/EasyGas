@@ -1,10 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 * {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;  
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 body{
     background-color: #ececee;
+    
 }
+
+.gasBlock{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gasBlock .gasBorder{
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gasBlock .gasBorder::before{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #ff6636;
+}
+
+.gasBlock .gasBorder .gasInfoBlock{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.gasBlock .gasBorder .gasInfoBlock .gasLogo{
+    position: relative;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gasBlock .gasBorder .gasInfoBlock .gasTextBlock h3{
+    font-weight: 1200;
+    color: #ff3921;
+}
+
 a {
     text-decoration: none;
     color: black; /* For Example */
@@ -12,21 +61,6 @@ a {
 
 
 
-
-
-
-
-
-
-
-
-/*InfoBlock*/
-
-.gasBorder{
-    border-radius: 5px;
-    border: 3px solid rgb(226, 64, 0);
-    margin-top: 10px;
-}
 .imagen {
     border-radius: 5px;
     max-height: 75px;
@@ -34,26 +68,19 @@ a {
     padding: 10px;
     border-radius: 5px;
 }
-.gasBorder{
-    
-    width: 100%;
-   
-    
-}
-.gasNameBlock{
-    font-size: 13px;
-    text-align: center;
-}
+
+
 .gasMoney{
+    position: relative;
     display: flex;  
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     align-content: flex-start;
     
 }
 .gasMoney p {
     border-radius: 10px;
-    border: 2px solid rgb(194, 38, 38);
+    border: 2px solid #ff3921;
     padding-left: 5px;
     padding-right: 5px;
     margin-right: 5px;
@@ -61,182 +88,3 @@ a {
     margin-bottom: 0.3rem;
 }
 /*FIN InfoBlock*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*GasStation Page*/
-/*Nombre, logo y direccion de la gasolinera*/
-.gasolineraInfo {
-    margin-top: 0.1rem;
-    border-radius: 5px;
-    background-color: #ff6636;
-    display: flex;
-}
-.gasolineraLogo {
-    padding: 5px;
-    width: auto;
-}
-.gasolineraLogo img {
-    border-radius: 5px;
-    max-height: 75px;
-    max-width: 75px;
-}
-.gasolineraName {
-    width: 100%;
-    text-align: center;
-    margin: 10px;
-}
-.gasolineraName p {
-    
-    margin: 10px;
-}
-.gasolineraName h1 {
-    margin-bottom: 0px;
-    font-size: 22px;
-}
-.gasolineraName hr {
-    margin-top: 0px;
-}
-.gasolineraName {
-    font-size: 15px;
-}
-/*FIN Nombre, logo y direccion de la gasolinera*/
-/*DIV del final*/
-.socialBar {
-    border-radius: 5px;
-    margin: 10px 0px 10px 0px;
-    background-color: #ff3921;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-}
-.icon {
-    margin: 15px 15px 15px 0px;
-    width: 30px;
-    height: 30px;
-}
-/*FIN DIV del final*/
-/*PreciosGasolina y info gasolinera*/
-.gasInfo {
-    border-radius: 5px;
-    background-color: #cdcdcd;
-    margin: 10px 0px 10px 0px;
-}
-.gas {
-    display: flex;
-    padding-left: 15px;
-    padding: 10px;
-}
-.gasName {
-    font-weight: bold;
-    padding-right: 10px;
-}
-/*FIN PreciosGasolina*/
-
-/*MENU DESPLEGABLE*/
-.menuDesplegable {
-    border-radius: 5px;
-    background-color: #444343;
-    color: white;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    border: 0;
-}
-.active, .menuDesplegable:hover {
-    background-color: #444343;
-    border-radius: 5px 5px 0px 0px;
-
-}
-.menuDesplegable:after {
-    content: '\2022';
-    color: white;
-    float: right;
-    margin-left: 5px;
-}
-.active:after {
-    content: "\2228";
-}
-.menuContenido {
-    padding: 0 18px;
-    color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #777;
-    border-radius: 0px 0px 5px 5px;
-}
-/*FIN MENU DESPLEGABLE*/
-
-/*FINGasStation Page*/
-
-
-.center {
-    display: flex;
-    justify-content: center;
-}
-.searchButton{
-    border-radius: 1rem;
-    background-color: rgb(109, 109, 109);
-    margin: 0.3rem;
-    border: none;
-    padding: 5px 20px;
-    color: #d8d8d8;
-
-}
-.searchButtonPanel{
-    margin-top: 1.5rem;
-}
-
-
-
-/*Combo*/
-
-.custom-combobox {
-    position: absolute;
-}
-.custom-combobox-toggle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin-left: -1px;
-    padding: 0;
-}
-.custom-combobox-input {
-    margin: 0;
-    padding: 5px 10px;
-    }
-  
-  
-/*FIN Combo*/
-
-
-.searchForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
