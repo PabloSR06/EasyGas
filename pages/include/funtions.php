@@ -40,10 +40,12 @@ function printSearch($array){
         echo "No hay datos disponibles en esta busqueda";
         //TODO: Poner alerta
     }
-    while ($i < $tam) {    
+    echo "<div class='gasBlock'>";
+    while ($i < $tam) {  
         gasolinera($array->ListaEESSPrecio[$i]);
         $i++;   
     }
+    echo "</div>";
 }
 function printSearchFiltrer($value, $array){
     $i = 0;
@@ -53,15 +55,14 @@ function printSearchFiltrer($value, $array){
         echo "No hay datos disponibles en esta busqueda";
         //TODO: Poner alerta
     }
-
+    echo "<div class='gasBlock'>";
     while ($i < $tam) {  
         $array[$i] = (array) $array[$i]; 
         if($array[$i][$value] != "") {
             gasolinera($array[$i]);
         }
-        
-        
         $i++;   
     }
+    echo "</div>";
 }
 ?>
