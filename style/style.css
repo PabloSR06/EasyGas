@@ -12,6 +12,106 @@ a {
     text-decoration: none;
     color: black; /* For Example */
 }
+/*NAV BAR*/
+.navegacion{
+    position:fixed;
+    bottom:0px;
+    width: 100%;
+    height: 70px;
+    background: rgb(37, 37, 37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navegacion ul{
+    display: flex;
+}
+.navegacion ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.navegacion ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+.navegacion ul li a .icono{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: azure;
+}
+.navegacion ul li.activa a .icono{
+    transform: translateY(-32px);
+}
+.navegacion ul li a .text{
+    position: absolute;
+    color: azure;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.navegacion ul li.activa a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+.muestra{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #ff3921;
+    border-radius: 50%;
+    border: 6px solid #ececee;
+}
+.muestra::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 #ececee;
+}
+.muestra::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 #ececee;
+}
+.navegacion ul li:nth-child(1).activa ~ .muestra{
+    transform: translateX(calc(70px * 0));
+}
+.navegacion ul li:nth-child(2).activa ~ .muestra{
+    transform: translateX(calc(70px * 1));
+}
+.navegacion ul li:nth-child(3).activa ~ .muestra{
+    transform: translateX(calc(70px * 2));
+}
+.navegacion ul li:nth-child(4).activa ~ .muestra{
+    transform: translateX(calc(70px * 3));
+}
+/*END NAV BAR*/
 
 /*InfoBlock*/
 .gasBlock{
