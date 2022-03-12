@@ -8421,7 +8421,7 @@ if (isset($_POST['municipio'])) {
                 </a>
             </li>
             <li class="lista ">
-                <a href="#">
+                <a href="/Easygas/pages/mapsPage.php">
                     <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
                     <span class="text">Mapa</span>
                 </a>

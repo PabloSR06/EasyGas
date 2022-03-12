@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="/Easygas/style/style.css">
 </head>
 <body>
-
-    <span class=""><ion-icon name="settings-outline"></ion-icon></span>    
+    <div class="">
+        <a href="">
+            <span class=""><ion-icon name="settings-outline"></ion-icon></span>
+        </a>
+    </div>
+   
     
     <div class="navegacion">
         <ul>
@@ -27,7 +31,7 @@
                 </a>
             </li>
             <li class="lista ">
-                <a href="#">
+                <a href="/Easygas/pages/mapsPage.php">
                     <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
                     <span class="text">Mapa</span>
                 </a>
