@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="">
-        <a href="">
+        <a href="/Easygas/pages/infoPage.php">
             <span class=""><ion-icon name="settings-outline"></ion-icon></span>
         </a>
     </div>
