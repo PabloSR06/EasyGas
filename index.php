@@ -5,33 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <link rel="icon" type="image/png" href="/Easygas/images/icon.png"/>
     <link rel="stylesheet" href="/Easygas/style/style.css">
 </head>
 <body>
 
-
-    <?php
-    include "pages/include/navigationBar.php";
-    ?>
-
+    <span class=""><ion-icon name="settings-outline"></ion-icon></span>    
+    
     <div class="navegacion">
         <ul>
-            <li class="lista ">
+            <li class="lista activa">
                 <a href="/Easygas/index.php">
                     <span class="icono"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="text">Home</span>
+                    <span class="text">Inicio</span>
                 </a>
             </li>
-            <li class="lista activa">
+            <li class="lista ">
                 <a href="/Easygas/pages/searchPage.php">
                     <span class="icono"><ion-icon name="search-outline"></ion-icon></span>
-                    <span class="text">Search</span>
+                    <span class="text">Busqueda</span>
                 </a>
             </li>
             <li class="lista ">
                 <a href="#">
                     <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
-                    <span class="text">Map</span>
+                    <span class="text">Mapa</span>
                 </a>
             </li>
             <div class="muestra"></div>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Busqueda</title>
-
+    <link rel="icon" type="image/png" href="/Easygas/images/icon.png"/>
     <link rel="stylesheet" href="/Easygas/style/style.css" />
 
 </head>
@@ -31,10 +31,10 @@
     </div>
 
     <?php
-    if (isset($_POST['comunidad'])) {
+if (isset($_POST['comunidad'])) {
     ?>
-    <div class="midPage">
-        <form action="searchPrint.php" method="get">
+    <div class="center ">
+        <form action="searchPrint.php" class="searchForm" method="get">
             <label class="combo-label">Selecciona una Comunidad Autonoma</label>
             <select id="comunidad" name="filtro" class="combo">
                 <option class="option"  value="" selected="selected">Comunidad Autonoma</option>
@@ -62,10 +62,10 @@
         </form>
     </div>
     <?php
-    }   
-    if (isset($_POST['provincia'])) {
+}
+if (isset($_POST['provincia'])) {
     ?>
-    <div class="midPage">
+    <div class="midPage" class="searchForm">
         <form action="searchPrint.php" method="get">
             <label class="combo-label">Selecciona una provincia</label>
             <select id="provincia" name="filtro" class="combo">
@@ -129,11 +129,11 @@
         </form>
     </div>
     <?php
-    }   
-    if (isset($_POST['municipio'])) {
+}
+if (isset($_POST['municipio'])) {
     ?>
     <div class="midPage">
-        <form action="searchPrint.php" method="get">
+        <form action="searchPrint.php" class="searchForm" method="get">
             <label class="combo-label">Selecciona un Municipio</label>
             <select id="municipio" name="filtro"  class="combo">
                 <option class="option"  value="" selected="selected">Municipio</option>
@@ -8255,8 +8255,8 @@
         </form>
     </div>
     <?php
-    }
-    ?>
+}
+?>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
@@ -8268,16 +8268,16 @@
         this.wrapper = $( "<span>" )
           .addClass( "custom-combobox" )
           .insertAfter( this.element );
- 
+
         this.element.hide();
         this._createAutocomplete();
         this._createShowAllButton();
       },
- 
+
       _createAutocomplete: function() {
         var selected = this.element.children( ":selected" ),
           value = selected.val() ? selected.text() : "";
- 
+
         this.input = $( "<input>" )
           .appendTo( this.wrapper )
           .val( value )
@@ -8291,7 +8291,7 @@
           .tooltip({
             tooltipClass: "ui-state-highlight"
           });
- 
+
         this._on( this.input, {
           autocompleteselect: function( event, ui ) {
             ui.item.option.selected = true;
@@ -8299,15 +8299,15 @@
               item: ui.item.option
             });
           },
- 
+
           autocompletechange: "_removeIfInvalid"
         });
       },
- 
+
       _createShowAllButton: function() {
         var input = this.input,
           wasOpen = false;
- 
+
         $( "<a>" )
           .attr( "tabIndex", -1 )
           .attr( "title", "Show All Countries" )
@@ -8326,17 +8326,17 @@
           })
           .click(function() {
             input.focus();
- 
+
             // Close if already visible
             if ( wasOpen ) {
               return;
             }
- 
+
             // Pass empty string as value to search for, displaying all results
             input.autocomplete( "search", "" );
           });
       },
- 
+
       _source: function( request, response ) {
         var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
         response( this.element.children( "option" ).map(function() {
@@ -8349,14 +8349,14 @@
             };
         }) );
       },
- 
+
       _removeIfInvalid: function( event, ui ) {
- 
+
         // Selected an item, nothing to do
         if ( ui.item ) {
           return;
         }
- 
+
         // Search for a match (case-insensitive)
         var value = this.input.val(),
           valueLowerCase = value.toLowerCase(),
@@ -8367,12 +8367,12 @@
             return false;
           }
         });
- 
+
         // Found a match, nothing to do
         if ( valid ) {
           return;
         }
- 
+
         // Remove invalid value
         this.input
           .val( "" )
@@ -8384,14 +8384,14 @@
         }, 2500 );
         this.input.autocomplete( "instance" ).term = "";
       },
- 
+
       _destroy: function() {
         this.wrapper.remove();
         this.element.show();
       }
     });
   })( jQuery );
- 
+
   $(document).ready(function() {
   $("#combos").combobox({
   select: function(event, ui) {
@@ -8401,9 +8401,39 @@
   });
 
 
-}
-);
-    </script>
+  }
+  );
+</script>
+
+
+<div class="navegacion">
+        <ul>
+            <li class="lista ">
+                <a href="/Easygas/index.php">
+                    <span class="icono"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li class="lista activa">
+                <a href="/Easygas/pages/searchPage.php">
+                    <span class="icono"><ion-icon name="search-outline"></ion-icon></span>
+                    <span class="text">Busqueda</span>
+                </a>
+            </li>
+            <li class="lista ">
+                <a href="#">
+                    <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
+                    <span class="text">Mapa</span>
+                </a>
+            </li>
+            <div class="muestra"></div>
+        </ul>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
 </body>
 
 </html>
