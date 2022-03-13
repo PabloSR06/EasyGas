@@ -17,7 +17,7 @@
 
     ?>
     <div class="center searchButtonPanel">
-        <div>
+        
             <div>
                 <form method='get' action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <input name="metodo" type="hidden" value="<?php echo $_GET['metodo']?>">
@@ -46,7 +46,7 @@
                     <button class="searchButton" name='orden' value="gasoplus">Precio Gasoleo +</button>
                 </form>
             </div>
-        </div>
+
     </div>
    <?php
     if(isset($_GET['metodo'])){
@@ -85,6 +85,7 @@
 
     
     ?>
+    <div style="margin-bottom: 120px"></div>
 
     
     <div class="navegacion">    

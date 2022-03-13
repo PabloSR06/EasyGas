@@ -24,6 +24,8 @@ a {
     align-items: center;
 
     z-index:  999999999 ;
+
+    border-top: 1px solid #ff3921;
 }
 .navegacion ul{
     display: flex;
@@ -304,7 +306,10 @@ a {
 
 }
 .searchButtonPanel{
+    margin-bottom: 1.5rem;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 
