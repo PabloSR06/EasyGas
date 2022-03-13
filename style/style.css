@@ -291,7 +291,7 @@ a {
 
 /*FINGasStation Page*/
 
-
+/*SEARCH PAGE*/
 .center {
     display: flex;
     justify-content: center;
@@ -311,6 +311,17 @@ a {
     flex-wrap: wrap;
     flex-direction: row;
 }
+.searchForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchForm label, .searchForm select, .searchForm button{ 
+   margin:10px;
+}
+/*END SEARCH PAGE*/
 
 
 
@@ -335,15 +346,9 @@ a {
 /*FIN Combo*/
 
 
-.searchForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.searchForm label, .searchForm select, .searchForm button{ 
-   margin:10px;
-}
 
-
+.settingButton{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}

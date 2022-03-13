@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/Easygas/style/style.css">
 </head>
 <body>
-    <div class="">
+    <div class="settingButton">
         <a href="/Easygas/pages/infoPage.php">
             <span class=""><ion-icon name="settings-outline"></ion-icon></span>
         </a>
