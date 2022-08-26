@@ -9,6 +9,11 @@
     <link rel="icon" type="image/png" href="/Easygas/images/icon.png"/>
     <link rel="stylesheet" href="/Easygas/style/style.css" />
 
+        
+    <script src="/Easygas/js/jquery-3.6.0.js"></script>
+<link href="/Easygas/style/select2.min.css" rel="stylesheet" />
+<script src="/Easygas/js/select2.min.js"></script>
+
 </head>
 
 <body>
@@ -37,45 +42,51 @@
         </div>
     </div>
 
+
     <?php
 if (isset($_POST['comunidad'])) {
-    ?>
-    <div class="center ">
+    ?>  
+    <div class="center">
         <form action="searchPrint.php" class="searchForm" method="get">
-            <label class="combo-label">Selecciona una Comunidad Autonoma</label>
-            <select id="comunidad" name="filtro" class="combo">
-                <option class="option"  value="" selected="selected">Comunidad Autonoma</option>
-                <option class="option"  value="01">Andalucia</option>
-                <option class="option"  value="02">Aragón</option>
-                <option class="option"  value="03">Asturias</option>
-                <option class="option"  value="04">Baleares</option>
-                <option class="option"  value="05">Canarias</option>
-                <option class="option"  value="06">Cantabria</option>
-                <option class="option"  value="07">Castilla la Mancha</option>
-                <option class="option"  value="08">Castilla y León</option>
-                <option class="option"  value="09">Cataluña</option>
-                <option class="option"  value="10">Comunidad Valenciana</option>
-                <option class="option"  value="11">Extremadura</option>
-                <option class="option"  value="12">Galicia</option>
-                <option class="option"  value="13">Madrid</option>
-                <option class="option"  value="14">Murcia</option>
-                <option class="option"  value="15">Navarra</option>
-                <option class="option"  value="16">País Vasco</option>
-                <option class="option"  value="17">Rioja (La)</option>
-                <option class="option"  value="18">Ceuta</option>
-                <option class="option"  value="19">Melilla</option>
-            </select>
+        <label>Selecciona una Comunidad Autonoma</label>
+        <select name="comunidad" id="comunidad" class="jsComunidad">
+            <option class="option"  value="" selected="selected">Comunidad Autonoma</option>
+            <option class="option"  value="01">Andalucia</option>
+            <option class="option"  value="02">Aragón</option>
+            <option class="option"  value="03">Asturias</option>
+            <option class="option"  value="04">Baleares</option>
+            <option class="option"  value="05">Canarias</option>
+            <option class="option"  value="06">Cantabria</option>
+            <option class="option"  value="07">Castilla la Mancha</option>
+            <option class="option"  value="08">Castilla y León</option>
+            <option class="option"  value="09">Cataluña</option>
+            <option class="option"  value="10">Comunidad Valenciana</option>
+            <option class="option"  value="11">Extremadura</option>
+            <option class="option"  value="12">Galicia</option>
+            <option class="option"  value="13">Madrid</option>
+            <option class="option"  value="14">Murcia</option>
+            <option class="option"  value="15">Navarra</option>
+            <option class="option"  value="16">País Vasco</option>
+            <option class="option"  value="17">Rioja (La)</option>
+            <option class="option"  value="18">Ceuta</option>
+            <option class="option"  value="19">Melilla</option>
+        </select> 
             <button name="metodo" value="metComunidad">Buscar</button>
         </form>
     </div>
+    <script>
+      $(document).ready(function() {
+          $('.jsComunidad').select2();
+      });
+    </script>
     <?php
 }
 if (isset($_POST['provincia'])) {
     ?>
-    <div class="midPage" class="searchForm">
-        <form action="searchPrint.php" method="get">
-            <label class="combo-label">Selecciona una provincia</label>
-            <select id="provincia" name="filtro" class="combo">
+    <div class="center">
+        <form action="searchPrint.php" class="searchForm" method="get">
+            <label>Selecciona una provincia</label>
+            <select id="provincia" name="provincia" class="jsProvincia">
                 <option class="option"  value="" selected="selected">Provincia</option>
                 <option class="option"  value="02">ALBACETE</option>
                 <option class="option"  value="03">ALICANTE</option>
@@ -135,6 +146,11 @@ if (isset($_POST['provincia'])) {
 
         </form>
     </div>
+    <script>
+      $(document).ready(function() {
+          $('.jsProvincia').select2();
+      });
+    </script>
     <?php
 }
 if (isset($_POST['municipio'])) {
@@ -142,7 +158,7 @@ if (isset($_POST['municipio'])) {
     <div class="midPage">
         <form action="searchPrint.php" class="searchForm" method="get">
             <label class="combo-label">Selecciona un Municipio</label>
-            <select id="municipio" name="filtro"  class="combo">
+            <select id="municipio" name="filtro"  class="jsMunicipio">
                 <option class="option"  value="" selected="selected">Municipio</option>
                 <option class="option"  value="1">Alegría-Dulantzi</option>
                 <option class="option"  value="2">Amurrio</option>
@@ -8261,11 +8277,14 @@ if (isset($_POST['municipio'])) {
             <button name="metodo" value="metMunicipio">Buscar</button>
         </form>
     </div>
+    <script>
+      $(document).ready(function() {
+          $('.jsMunicipio').select2();
+      });
+    </script>
     <?php
 }
 ?>
-
-
 
 </body>
 </html>
