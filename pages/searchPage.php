@@ -12,6 +12,13 @@
 </head>
 
 <body>
+<?php
+        include 'include/navigationBar.php';
+    ?>
+    <script>
+        document.getElementById("menu-search").classList.add('active');
+    </script>
+
     <div class="center searchButtonPanel">
         <div>
             <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
@@ -8258,182 +8265,7 @@ if (isset($_POST['municipio'])) {
 }
 ?>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-
-<script>
-      (function( $ ) {
-    $.widget( "custom.combobox", {
-      _create: function() {
-        this.wrapper = $( "<span>" )
-          .addClass( "custom-combobox" )
-          .insertAfter( this.element );
-
-        this.element.hide();
-        this._createAutocomplete();
-        this._createShowAllButton();
-      },
-
-      _createAutocomplete: function() {
-        var selected = this.element.children( ":selected" ),
-          value = selected.val() ? selected.text() : "";
-
-        this.input = $( "<input>" )
-          .appendTo( this.wrapper )
-          .val( value )
-          .attr( "title", "" )
-          .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
-          .autocomplete({
-            delay: 0,
-            minLength: 0,
-            source: $.proxy( this, "_source" )
-          })
-          .tooltip({
-            tooltipClass: "ui-state-highlight"
-          });
-
-        this._on( this.input, {
-          autocompleteselect: function( event, ui ) {
-            ui.item.option.selected = true;
-            this._trigger( "select", event, {
-              item: ui.item.option
-            });
-          },
-
-          autocompletechange: "_removeIfInvalid"
-        });
-      },
-
-      _createShowAllButton: function() {
-        var input = this.input,
-          wasOpen = false;
-
-        $( "<a>" )
-          .attr( "tabIndex", -1 )
-          .attr( "title", "Show All Countries" )
-          .tooltip()
-          .appendTo( this.wrapper )
-          .button({
-            icons: {
-              primary: "ui-icon-triangle-1-s"
-            },
-            text: false
-          })
-          .removeClass( "ui-corner-all" )
-          .addClass( "custom-combobox-toggle ui-corner-right" )
-          .mousedown(function() {
-            wasOpen = input.autocomplete( "widget" ).is( ":visible" );
-          })
-          .click(function() {
-            input.focus();
-
-            // Close if already visible
-            if ( wasOpen ) {
-              return;
-            }
-
-            // Pass empty string as value to search for, displaying all results
-            input.autocomplete( "search", "" );
-          });
-      },
-
-      _source: function( request, response ) {
-        var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
-        response( this.element.children( "option" ).map(function() {
-          var text = $( this ).text();
-          if ( this.value && ( !request.term || matcher.test(text) ) )
-            return {
-              label: text,
-              value: text,
-              option: this
-            };
-        }) );
-      },
-
-      _removeIfInvalid: function( event, ui ) {
-
-        // Selected an item, nothing to do
-        if ( ui.item ) {
-          return;
-        }
-
-        // Search for a match (case-insensitive)
-        var value = this.input.val(),
-          valueLowerCase = value.toLowerCase(),
-          valid = false;
-        this.element.children( "option" ).each(function() {
-          if ( $( this ).text().toLowerCase() === valueLowerCase ) {
-            this.selected = valid = true;
-            return false;
-          }
-        });
-
-        // Found a match, nothing to do
-        if ( valid ) {
-          return;
-        }
-
-        // Remove invalid value
-        this.input
-          .val( "" )
-          .attr( "title", value + " didn't match any item" )
-          .tooltip( "open" );
-        this.element.val( "" );
-        this._delay(function() {
-          this.input.tooltip( "close" ).attr( "title", "" );
-        }, 2500 );
-        this.input.autocomplete( "instance" ).term = "";
-      },
-
-      _destroy: function() {
-        this.wrapper.remove();
-        this.element.show();
-      }
-    });
-  })( jQuery );
-
-  $(document).ready(function() {
-  $("#combos").combobox({
-  select: function(event, ui) {
-  var selectcount =this.value;
-
-  }
-  });
-
-
-  }
-  );
-</script>
-
-
-<div class="navegacion">
-        <ul>
-            <li class="lista ">
-                <a href="/Easygas/index.php">
-                    <span class="icono"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="text">Inicio</span>
-                </a>
-            </li>
-            <li class="lista activa">
-                <a href="/Easygas/pages/searchPage.php">
-                    <span class="icono"><ion-icon name="search-outline"></ion-icon></span>
-                    <span class="text">Busqueda</span>
-                </a>
-            </li>
-            <li class="lista ">
-                <a href="/Easygas/pages/mapsPage.php">
-                    <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
-                    <span class="text">Mapa</span>
-                </a>
-            </li>
-            <div class="muestra"></div>
-        </ul>
-    </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 
 
 </body>
-
 </html>

@@ -10,12 +10,16 @@
 </head>
 <body>
     <?php
-    //TODO PHPDOC
-    require "include/funtions.php";
-    require "include/InfoBlock.php";
-
-
+        //TODO PHPDOC
+        require "include/funtions.php";
+        require "include/InfoBlock.php";
+    
+        include 'include/navigationBar.php';
     ?>
+    <script>
+        document.getElementById("menu-search").classList.add('active');
+    </script>
+
     <div class="center searchButtonPanel">
         
             <div>
@@ -88,31 +92,7 @@
     <div style="margin-bottom: 120px"></div>
 
     
-    <div class="navegacion">    
-        <ul>
-            <li class="lista ">
-                <a href="/Easygas/index.php">
-                    <span class="icono"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="text">Inicio</span>
-                </a>
-            </li>
-            <li class="lista activa">
-                <a href="/Easygas/pages/searchPage.php">
-                    <span class="icono"><ion-icon name="search-outline"></ion-icon></span>
-                    <span class="text">Busqueda</span>
-                </a>
-            </li>
-            <li class="lista ">
-                <a href="/Easygas/pages/mapsPage.php">
-                    <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
-                    <span class="text">Mapa</span>
-                </a>
-            </li>
-            <div class="muestra"></div>
-        </ul>
-    </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
     
 </body>
 </html>

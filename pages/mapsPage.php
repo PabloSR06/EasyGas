@@ -7,6 +7,12 @@
     <title>Mapa</title>
 </head>
 <body>
+<?php
+        include 'include/navigationBar.php';
+    ?>
+    <script>
+        document.getElementById("menu-map").classList.add('active');
+    </script>
     <h1>Mapa todavia no disponible</h1>
 </body>
 </html>
