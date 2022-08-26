@@ -17,6 +17,13 @@
 </head>
 
 <body>
+<?php
+        include 'include/navigationBar.php';
+    ?>
+    <script>
+        document.getElementById("menu-search").classList.add('active');
+    </script>
+
     <div class="center searchButtonPanel">
         <div>
             <form method='POST' action="<?php echo $_SERVER['PHP_SELF'] ?>">
@@ -8279,34 +8286,5 @@ if (isset($_POST['municipio'])) {
 }
 ?>
 
-<div class="navegacion">
-        <ul>
-            <li class="lista ">
-                <a href="/Easygas/index.php">
-                    <span class="icono"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="text">Inicio</span>
-                </a>
-            </li>
-            <li class="lista activa">
-                <a href="/Easygas/pages/searchPage.php">
-                    <span class="icono"><ion-icon name="search-outline"></ion-icon></span>
-                    <span class="text">Busqueda</span>
-                </a>
-            </li>
-            <li class="lista ">
-                <a href="/Easygas/pages/mapsPage.php">
-                    <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
-                    <span class="text">Mapa</span>
-                </a>
-            </li>
-            <div class="muestra"></div>
-        </ul>
-    </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-
-
 </body>
-
 </html>

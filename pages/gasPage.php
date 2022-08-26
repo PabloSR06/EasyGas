@@ -12,9 +12,14 @@
     <?php
     //TODO HACER EL LINK MAS PEQUE
     //TODO FIX CSS
-    $decode =  base64_decode($_GET['valor']);
-    $array = unserialize($decode);
+        $decode =  base64_decode($_GET['valor']);
+        $array = unserialize($decode);
+    
+        include 'include/navigationBar.php';
     ?>
+    <script>
+        document.getElementById("menu-search").classList.add('active');
+    </script>
     <div>
         <div class="gasolineraInfo">
             <div class="gasolineraLogo">
@@ -141,33 +146,7 @@
 
     </div>
 
-    <div class="navegacion">
-        <ul>
-            <li class="lista activa">
-                <a href="/Easygas/index.php">
-                    <span class="icono"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="text">Inicio</span>
-                </a>
-            </li>
-            <li class="lista ">
-                <a href="/Easygas/pages/searchPage.php">
-                    <span class="icono"><ion-icon name="search-outline"></ion-icon></span>
-                    <span class="text">Busqueda</span>
-                </a>
-            </li>
-            <li class="lista ">
-                <a href="#">
-                    <span class="icono"><ion-icon name="map-outline"></ion-icon></span>
-                    <span class="text">Mapa</span>
-                </a>
-            </li>
-            <div class="muestra"></div>
-        </ul>
-    </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-
+   
     <script src="/Easygas/js/jquery-3.6.0.js"></script>
     <script>
         var coll = document.getElementsByClassName("menuDesplegable");
@@ -203,7 +182,5 @@
         }
     </script>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 </body>
 </html>
